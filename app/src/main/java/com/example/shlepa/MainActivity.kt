@@ -96,16 +96,17 @@ class MainActivity : ComponentActivity() {
     /**
      * Эмуляция шлепка при нажатии на тестовые кнопки.
      */
-    fun playManualSound(viewModel: SlapViewModel, isHigh: Boolean) {
+    fun playManualSound(viewModel: SlapViewModel, index: Int) {
         val baseForce = viewModel.thresholdState.floatValue
-        val fakeForce = if (isHigh) {
-            (baseForce * 2.1f) + (Math.random().toFloat() * baseForce)
-        } else {
-            (baseForce * 1.1f) + (Math.random().toFloat() * 0.5f * baseForce)
-        }
+        val fakeForce = baseForce * (1.1f + index * 0.3f)
         
         viewModel.impactForceState.floatValue = fakeForce
-        onSlapDetected(viewModel, fakeForce)
+        
+        soundManager?.playSound(index)
+        vibrationManager?.vibrate(index >= 2)
+        
+        viewModel.addSlap(fakeForce)
+        viewModel.isSlappingState.value = true // Триггер для анимации
     }
 }
 
@@ -179,8 +180,7 @@ fun MainScreen(viewModel: SlapViewModel) {
             slapCount = viewModel.slapCountState.intValue,
             history = viewModel.slapHistory,
             onThresholdChange = { viewModel.thresholdState.floatValue = it },
-            onTestLow = { activity?.playManualSound(viewModel, isHigh = false) },
-            onTestHigh = { activity?.playManualSound(viewModel, isHigh = true) },
+            onPlaySound = { index -> activity?.playManualSound(viewModel, index) },
             modifier = Modifier.padding(innerPadding)
         )
     }
@@ -216,8 +216,7 @@ fun SlapScreen(
     slapCount: Int,
     history: List<Float>,
     onThresholdChange: (Float) -> Unit,
-    onTestLow: () -> Unit,
-    onTestHigh: () -> Unit,
+    onPlaySound: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     // Анимация цвета текста при шлепке
@@ -299,12 +298,24 @@ fun SlapScreen(
 
         // Нижний блок: кнопки тестирования и настройка порога
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Row(
+            Column(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Button(onClick = onTestLow) { Text(stringResource(R.string.test_low)) }
-                Button(onClick = onTestHigh) { Text(stringResource(R.string.test_high)) }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Button(onClick = { onPlaySound(0) }, modifier = Modifier.weight(1f)) { Text("Кнопка 1") }
+                    Button(onClick = { onPlaySound(1) }, modifier = Modifier.weight(1f)) { Text("Кнопка 2") }
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Button(onClick = { onPlaySound(2) }, modifier = Modifier.weight(1f)) { Text("Кнопка 3") }
+                    Button(onClick = { onPlaySound(3) }, modifier = Modifier.weight(1f)) { Text("Кнопка 4") }
+                }
             }
 
             Spacer(modifier = Modifier.height(24.dp))

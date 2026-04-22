@@ -1,62 +1,70 @@
 package com.example.shlepa
 
 import android.content.Context
-import android.media.AudioAttributes
-import android.media.SoundPool
+import android.media.MediaPlayer
+import android.util.Log
 
 /**
  * Менеджер для управления звуковыми эффектами.
+ * Использует MediaPlayer для надежного воспроизведения MP3 файлов.
  */
-class SoundManager(context: Context) {
-    private val soundPool: SoundPool
-    private var slapLowSoundId: Int = 0
-    private var slapHighSoundId: Int = 0
-    private var isLowReady = false
-    private var isHighReady = false
-
-    init {
-        // Настройка атрибутов аудио (для системных звуков/эффектов)
-        val audioAttributes = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_MEDIA)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .build()
-
-        // Создание пула звуков
-        soundPool = SoundPool.Builder()
-            .setMaxStreams(10)
-            .setAudioAttributes(audioAttributes)
-            .build()
-
-        // Слушатель окончания загрузки сэмплов
-        soundPool.setOnLoadCompleteListener { _, sampleId, status ->
-            if (status == 0) {
-                if (sampleId == slapLowSoundId) isLowReady = true
-                if (sampleId == slapHighSoundId) isHighReady = true
-            }
-        }
-
-        // Загрузка звуковых файлов из ресурсов raw
-        slapLowSoundId = soundPool.load(context, R.raw.moan_low, 1)
-        slapHighSoundId = soundPool.load(context, R.raw.moan_high, 1)
-    }
+class SoundManager(private val context: Context) {
+    private val soundResIds = intArrayOf(
+        R.raw.hentai_moan,
+        R.raw.hentai_yamete,
+        R.raw.glitter_hentai,
+        R.raw.arigato
+    )
+    
+    private val activePlayers = mutableListOf<MediaPlayer>()
 
     /**
      * Проигрывание звука шлепка.
-     * @param isStrong Если true, проигрывается "сильный" звук, иначе "слабый".
      */
     fun playSlap(isStrong: Boolean) {
-        val soundId = if (isStrong) slapHighSoundId else slapLowSoundId
-        val ready = if (isStrong) isHighReady else isLowReady
-        if (ready) {
-            // Воспроизведение: id, громкость L/R, приоритет, цикл, скорость
-            soundPool.play(soundId, 1f, 1f, 1, 0, 1f)
+        playSound(if (isStrong) 2 else 0)
+    }
+
+    /**
+     * Проигрывание звука по индексу (0-3).
+     */
+    fun playSound(index: Int) {
+        if (index !in soundResIds.indices) return
+        
+        val resId = soundResIds[index]
+        try {
+            val mediaPlayer = MediaPlayer.create(context, resId) ?: return
+            
+            synchronized(activePlayers) {
+                activePlayers.add(mediaPlayer)
+            }
+            
+            mediaPlayer.setOnCompletionListener { mp ->
+                mp.release()
+                synchronized(activePlayers) {
+                    activePlayers.remove(mp)
+                }
+            }
+            
+            mediaPlayer.start()
+            
+        } catch (e: Exception) {
+            Log.e("SoundManager", "Error playing sound at index $index", e)
         }
     }
 
     /**
-     * Освобождение ресурсов SoundPool.
+     * Освобождение всех активных ресурсов.
      */
     fun release() {
-        soundPool.release()
+        synchronized(activePlayers) {
+            activePlayers.forEach { 
+                try {
+                    if (it.isPlaying) it.stop()
+                    it.release()
+                } catch (e: Exception) { /* ignore */ }
+            }
+            activePlayers.clear()
+        }
     }
 }
