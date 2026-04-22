@@ -1,0 +1,30 @@
+# Project wide
+.gradle
+/build
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/deploymentTargetSelector.xml
+/.idea/deviceManager.xml
+/.idea/appInsightsSettings.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/dbnavigator.xml
+.DS_Store
+
+# Android
+/captures
+*.apk
+*.aar
+*.jks
+*.keystore
+
+# Kotlin
+.kotlin
+
+# External Native Build
+.externalNativeBuild
+.cxx
