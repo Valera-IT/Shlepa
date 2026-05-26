@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">シュレパ</string>
+    <string name="about_title">シュレパについて</string>
+    <string name="about_text">これは加速度計を使ってスラップ（叩く）の強さを測定する楽しいアプリです。\n\nスマホを振るか、スラップの動作をしてみてください！</string>
+    <string name="ok">了解</string>
+    <string name="reset">リセット</string>
+    <string name="menu">設定</string>
+    <string name="about_menu_item">アプリについて</string>
+    <string name="stat_slaps">スラップ数</string>
+    <string name="stat_record">記録</string>
+    <string name="last_impact_force">最後の衝撃力</string>
+    <string name="slap_exclamation">スラップ！</string>
+    <string name="history_label">履歴</string>
+    <string name="test_low">弱い</string>
+    <string name="test_high">強い</string>
+    <string name="sensitivity_threshold">感度しきい値: %.1f</string>
+    <string name="theme_auto">自動</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+    <string name="theme_pink">ピンク</string>
+    <string name="theme_yellow">イエロー</string>
+    <string name="btn_test_1">ボタン 1</string>
+    <string name="btn_test_2">ボタン 2</string>
+    <string name="btn_test_3">ボタン 3</string>
+    <string name="btn_test_4">ボタン 4</string>
+    <string name="settings_theme">テーマ</string>
+    <string name="settings_language">言語</string>
+    <string name="settings_sensitivity">感度</string>
+</resources>

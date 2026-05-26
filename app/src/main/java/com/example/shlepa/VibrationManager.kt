@@ -21,13 +21,25 @@ class VibrationManager(context: Context) {
 
     /**
      * Запуск вибрации.
-     * @param isStrong Если true, вибрация будет дольше и сильнее.
+     * @param mode Тип вибрации: 0 - обычная, 1 - сильная, 2 - критическая.
      */
-    fun vibrate(isStrong: Boolean) {
-        val duration = if (isStrong) 150L else 70L
-        val amplitude = if (isStrong) 255 else 180 // Максимальное значение 255
-        
-        // Создание одиночного вибро-эффекта
-        vibrator?.vibrate(VibrationEffect.createOneShot(duration, amplitude))
+    fun vibrate(mode: Int) {
+        when (mode) {
+            2 -> { // Критическая (двойной удар)
+                vibrator?.vibrate(
+                    VibrationEffect.createWaveform(
+                        longArrayOf(0, 100, 50, 200),
+                        intArrayOf(0, 255, 0, 255),
+                        -1
+                    )
+                )
+            }
+            1 -> { // Сильная
+                vibrator?.vibrate(VibrationEffect.createOneShot(150, 255))
+            }
+            else -> { // Обычная
+                vibrator?.vibrate(VibrationEffect.createOneShot(70, 180))
+            }
+        }
     }
 }

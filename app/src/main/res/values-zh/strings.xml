@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">什列巴</string>
+    <string name="about_title">关于什列巴</string>
+    <string name="about_text">这是一个有趣的应用程序，可以使用加速度计测量您的拍打力度。\n\n只需摇晃手机或模拟拍打即可！</string>
+    <string name="ok">知道了</string>
+    <string name="reset">重置</string>
+    <string name="menu">设置</string>
+    <string name="about_menu_item">关于应用</string>
+    <string name="stat_slaps">拍打次数</string>
+    <string name="stat_record">纪录</string>
+    <string name="last_impact_force">最后冲击力</string>
+    <string name="slap_exclamation">啪！</string>
+    <string name="history_label">历史</string>
+    <string name="test_low">弱</string>
+    <string name="test_high">强</string>
+    <string name="sensitivity_threshold">敏感度阈值: %.1f</string>
+    <string name="theme_auto">自动</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+    <string name="theme_pink">粉色</string>
+    <string name="theme_yellow">黄色</string>
+    <string name="btn_test_1">按钮 1</string>
+    <string name="btn_test_2">按钮 2</string>
+    <string name="btn_test_3">按钮 3</string>
+    <string name="btn_test_4">按钮 4</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_language">语言</string>
+    <string name="settings_sensitivity">灵敏度</string>
+</resources>

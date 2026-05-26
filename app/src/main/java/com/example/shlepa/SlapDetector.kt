@@ -58,7 +58,7 @@ class SlapDetector(
         val currentImpact = totalForce - SensorManager.GRAVITY_EARTH
         
         // Игнорируем мелкие колебания
-        if (currentImpact > 0.5f || currentImpact < -0.5f) {
+        if ((currentImpact > 0.5f) || (currentImpact < -0.5f)) {
             onForceUpdate(currentImpact)
         }
 

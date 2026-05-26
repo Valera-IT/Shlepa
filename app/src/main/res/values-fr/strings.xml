@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Shlepa</string>
+    <string name="about_title">À propos de Shlepa</string>
+    <string name="about_text">C\'est une application amusante pour mesurer la force de vos claques à l\'aide de l\'accéléromètre.\n\nSecouez simplement votre téléphone ou simulez une claque !</string>
+    <string name="ok">Compris</string>
+    <string name="reset">Réinitialiser</string>
+    <string name="menu">Paramètres</string>
+    <string name="about_menu_item">À propos</string>
+    <string name="stat_slaps">CLAQUES</string>
+    <string name="stat_record">RECORD</string>
+    <string name="last_impact_force">Force du dernier impact</string>
+    <string name="slap_exclamation">CLAC !</string>
+    <string name="history_label">Historique</string>
+    <string name="test_low">Faible</string>
+    <string name="test_high">Fort</string>
+    <string name="sensitivity_threshold">Seuil de sensibilité : %.1f</string>
+    <string name="theme_auto">Auto</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="theme_pink">Rose</string>
+    <string name="theme_yellow">Jaune</string>
+    <string name="btn_test_1">Bouton 1</string>
+    <string name="btn_test_2">Bouton 2</string>
+    <string name="btn_test_3">Bouton 3</string>
+    <string name="btn_test_4">Bouton 4</string>
+    <string name="settings_theme">Thème</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_sensitivity">Sensibilité</string>
+</resources>

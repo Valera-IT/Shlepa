@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Шлёпа</string>
+    <string name="about_title">О приложении Шлёпа</string>
+    <string name="about_text">Это веселое приложение для измерения силы ваших шлепков с помощью акселерометра.\n\nПросто встряхните телефон или сымитируйте шлепок!</string>
+    <string name="ok">Понятно</string>
+    <string name="reset">Сброс</string>
+    <string name="menu">Настройки</string>
+    <string name="about_menu_item">О приложении</string>
+    <string name="stat_slaps">ШЛËПОВ</string>
+    <string name="stat_record">РЕКОРД</string>
+    <string name="last_impact_force">Сила последнего удара</string>
+    <string name="slap_exclamation">ШЛЁП!</string>
+    <string name="history_label">История</string>
+    <string name="test_low">Слабый</string>
+    <string name="test_high">Сильный</string>
+    <string name="sensitivity_threshold">Порог чувствительности: %.1f</string>
+    <string name="theme_auto">Авто</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Темная</string>
+    <string name="theme_pink">Розовая</string>
+    <string name="theme_yellow">Желтая</string>
+    <string name="btn_test_1">Кнопка 1</string>
+    <string name="btn_test_2">Кнопка 2</string>
+    <string name="btn_test_3">Кнопка 3</string>
+    <string name="btn_test_4">Кнопка 4</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_language">Язык</string>
+    <string name="settings_sensitivity">Чувствительность</string>
+</resources>

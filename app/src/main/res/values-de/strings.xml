@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Shlepa</string>
+    <string name="about_title">Über Shlepa</string>
+    <string name="about_text">Dies ist eine lustige App, um die Kraft deiner Klapse mit dem Beschleunigungsmesser zu messen.\n\nSchüttle einfach dein Handy oder simuliere einen Klaps!</string>
+    <string name="ok">Verstanden</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="menu">Einstellungen</string>
+    <string name="about_menu_item">Über die App</string>
+    <string name="stat_slaps">KLAPSE</string>
+    <string name="stat_record">REKORD</string>
+    <string name="last_impact_force">Letzte Schlagkraft</string>
+    <string name="slap_exclamation">KLAPS!</string>
+    <string name="history_label">Verlauf</string>
+    <string name="test_low">Schwach</string>
+    <string name="test_high">Stark</string>
+    <string name="sensitivity_threshold">Empfindlichkeitsschwelle: %.1f</string>
+    <string name="theme_auto">Auto</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="theme_pink">Rosa</string>
+    <string name="theme_yellow">Gelb</string>
+    <string name="btn_test_1">Taste 1</string>
+    <string name="btn_test_2">Taste 2</string>
+    <string name="btn_test_3">Taste 3</string>
+    <string name="btn_test_4">Taste 4</string>
+    <string name="settings_theme">Thema</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_sensitivity">Empfindlichkeit</string>
+</resources>

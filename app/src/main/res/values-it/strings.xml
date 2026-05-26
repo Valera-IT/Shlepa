@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Shlepa</string>
+    <string name="about_title">Informazioni su Shlepa</string>
+    <string name="about_text">Questa è un\'app divertente per misurare la forza dei tuoi schiaffi usando l\'accelerometro.\n\nBasta scuotere il telefono o simulare uno schiaffo!</string>
+    <string name="ok">Ho capito</string>
+    <string name="reset">Reset</string>
+    <string name="menu">Impostazioni</string>
+    <string name="about_menu_item">Informazioni</string>
+    <string name="stat_slaps">SCHIAFFI</string>
+    <string name="stat_record">RECORD</string>
+    <string name="last_impact_force">Forza ultimo colpo</string>
+    <string name="slap_exclamation">SCHIAFFO!</string>
+    <string name="history_label">Cronologia</string>
+    <string name="test_low">Debole</string>
+    <string name="test_high">Forte</string>
+    <string name="sensitivity_threshold">Soglia di sensibilità: %.1f</string>
+    <string name="theme_auto">Auto</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="theme_pink">Rosa</string>
+    <string name="theme_yellow">Giallo</string>
+    <string name="btn_test_1">Pulsante 1</string>
+    <string name="btn_test_2">Pulsante 2</string>
+    <string name="btn_test_3">Pulsante 3</string>
+    <string name="btn_test_4">Pulsante 4</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_language">Lingua</string>
+    <string name="settings_sensitivity">Sensibilità</string>
+</resources>
